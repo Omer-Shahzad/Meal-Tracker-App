@@ -1,22 +1,49 @@
-import React from 'reract'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import React from 'react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from 'react-router-dom';
+import { HomePage } from './home';
+import { AppIngredientPage } from './ingredients';
+import { RecipeSearchPage } from './recipes';
+import { ShoppingListPage } from './shopping-list';
 
+const routes = [
+    {
+        path: '/',
+        Component: HomePage,
+        exact: true,
+    },
+    {
+        path: '/add-ingredient',
+        Component: AppIngredientPage,
+        exact: true,
+    },
+    {
+        path: '/recipes',
+        Component: RecipeSearchPage,
+        exact: true,
+    },
+    {
+        path: '/shopping-list',
+        Component: ShoppingListPage,
+        exact: true,
+    },
+];
 
-const routes = [];
-
-export const Routes = () => {
+export const Routes = () => (
     <Router>
         <Switch>
             {routes.map((route, index) => (
                 <Route
                     key={index}
                     path={route.path}
-                    exact={TouchEvent.exact}
+                    exact={route.exact}
                 >
-                    <route.Component />
+                    <route.Component/>
                 </Route>
             ))}
         </Switch>
-
     </Router>
-}
+);

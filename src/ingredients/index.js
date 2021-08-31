@@ -1,0 +1,1 @@
+export { AppIngredientPage } from './AppIngredientPage'
